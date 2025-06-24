@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -9,13 +10,14 @@ public class BubbleResizer : MonoBehaviour
     public float           WidthOffset  = 100f;
     public float           HeightOffset = 20f;
 
-    void LateUpdate()
+    public  void Resize(string text)
     {
+        MsgText.text = text;
+
         float txtWidth = MsgText.preferredWidth;
         float width = Mathf.Min(txtWidth, MaxWidth);
         
-        MsgText.rectTransform.SetSizeWithCurrentAnchors(
-            RectTransform.Axis.Horizontal, width);
+        MsgText.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         MsgText.textWrappingMode = TextWrappingModes.Normal;
 
         float txtHeight = MsgText.preferredHeight;

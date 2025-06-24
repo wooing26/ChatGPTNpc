@@ -75,12 +75,12 @@ public class ChatGPTTest : MonoBehaviour
         _messages.Add(new Message(Role.User, prompt));
 
         GameObject sendSlot = Instantiate(SendTextUI, ContentTransform);
-        var SendText = sendSlot.GetComponentInChildren<TextMeshProUGUI>();
-        if (SendText == null)
+        var SendBubble = sendSlot.GetComponentInChildren<BubbleResizer>();
+        if (SendBubble == null)
         {
             return;
         }
-        SendText.text = prompt;
+        SendBubble.Resize(prompt);
 
         // 3. 메시지 보내기
         var chatRequest = new ChatRequest(_messages, Model.GPT4o);
@@ -95,13 +95,12 @@ public class ChatGPTTest : MonoBehaviour
 
         // 6. 답변 출력
         GameObject resultSlot = Instantiate(ResultTextUI, ContentTransform);
-        var ResultText = resultSlot.GetComponentInChildren<TextMeshProUGUI>();
-        if (ResultText == null)
+        var ResultBubble = resultSlot.GetComponentInChildren<BubbleResizer>();
+        if (ResultBubble == null)
         {
             return;
         }
-
-        ResultText.text = npcResponse.ReplyMessage;
+        ResultBubble.Resize(npcResponse.ReplyMessage);
 
         _messages.Add(new Message(Role.Assistant, choice.Message));
 
