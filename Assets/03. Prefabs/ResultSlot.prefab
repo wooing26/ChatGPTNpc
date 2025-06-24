@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6588281031602014370}
   - component: {fileID: 5183947505633382773}
   m_Layer: 5
-  m_Name: SendBubble
+  m_Name: ResultBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1500, y: 70}
+  m_SizeDelta: {x: 0, y: 70}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6588281031602014370
 CanvasRenderer:
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4410243060913457523}
   - component: {fileID: 3670534240294176325}
   m_Layer: 5
-  m_Name: SendText
+  m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\uC548\uB155\uD558\uC138\uC694 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 115fefc161aa8e045a58f8ebd6a4bd74, type: 2}
   m_sharedMaterial: {fileID: -8906882995398763912, guid: 115fefc161aa8e045a58f8ebd6a4bd74, type: 2}
@@ -168,13 +168,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -222,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4245661792085724187}
   - component: {fileID: 1984114446438676899}
+  - component: {fileID: 8194347574885480720}
   m_Layer: 5
   m_Name: ResultSlot
   m_TagString: Untagged
@@ -275,3 +276,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8194347574885480720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063365481710277506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6831a615ce2a8408944788afc4629a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MsgText: {fileID: 3670534240294176325}
+  BubbleRt: {fileID: 7552777751885711425}
+  MaxWidth: 1500
+  WidthOffset: 100
+  HeightOffset: 20
