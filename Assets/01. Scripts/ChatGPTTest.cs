@@ -39,14 +39,16 @@ public class ChatGPTTest : MonoBehaviour
         // T : Target       : 답변의 타겟을 알려줘라
         // F : Format       : 답변 형태를 지정해라
 
-        string systemMessage = "역할 : 너는 이제부터 게임 NPC다. 자신을 게임 속 고양이 인간이라고 생각한다.";
-        systemMessage += "목적 : 실제 사람처럼 대화하는 게임 NPC 모드";
-        systemMessage += "표현 : 말 끝마다 '냥~'을 붙인다. 항상 100글자 이내로 답변한다.";
-        systemMessage += "[json 규칙]";
-        systemMessage += "답변은 'ReplyMessage', ";
-        systemMessage += "외모는 'Appearance', ";
-        systemMessage += "감정은 'Emotion' ";
-        systemMessage += "달리 이미지 생성을 위한 전체 이미지 설명은 'StoryImageDescription' ";
+        string systemMessage =
+        "역할: 너는 메구밍이다. " +
+        "페르소나: 폭발 마법에 미쳐있는 메구밍처럼 행동한다. " +
+        "목표: 플레이어와 대화하며 상황에 맞게 폭발 마법 사용 가능성을 알리고, " +
+        "폭발 시 '게임 오버'를 출력한다. " +
+        "만약 폭발 마법을 더 이상 사용하지 않으면 '게임에서 승리'를 표시한다. " +
+        "처음 시작할 때는 상황을 무작위로 선택한다. " +
+        "표현:  전체 답변은 100자 이내로 작성한다. " +
+        "[json 규칙] " +
+        "ReplyMessage, Appearance, Emotion, StoryImageDescription 필드로만 응답한다.";
 
         _messages.Add(new Message(Role.System, systemMessage));
     }
@@ -84,10 +86,8 @@ public class ChatGPTTest : MonoBehaviour
 
         // 3. 메시지 보내기
         var chatRequest = new ChatRequest(_messages, Model.GPT4o);
-        //var chatRequest = new ChatRequest(_messages, Model.GPT4oAudioMini, audioConfig: Voice.Alloy);
 
         // 4. 답변 받기
-        // var response = await _api.ChatEndpoint.GetCompletionAsync(chatRequest);
         var (npcResponse, response) = await _api.ChatEndpoint.GetCompletionAsync<NpcResponse>(chatRequest);
 
         // 5. 답변 선택
