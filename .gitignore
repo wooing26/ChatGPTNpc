@@ -75,4 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # 하위 폴더의 파일 제외
-Assets/Scripts/APIKeys.cs
+Assets/01. Scripts/APIKeys.cs
+Assets/01. Scripts/APIKeys.cs.meta
